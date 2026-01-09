@@ -1,13 +1,9 @@
-// import './App.css'
+import './App.css'
 
 function App() {
-
   return (
-    <>
-     <div>
-      <h1>this is my header</h1>
-     </div>
-    </>
+    <div className="App">
+    </div>
   )
 }
 
