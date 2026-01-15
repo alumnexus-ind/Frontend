@@ -1,1 +1,234 @@
-/* Cleaned App.css */
+/* 1. Define Variables (The "Palette") */
+:root {
+  /* Light Theme Defaults */
+  --bg-primary: #f8f9fa;
+  /* Light Gray Background */
+  --bg-secondary: #ffffff;
+  /* White Card Background */
+  --text-primary: #212529;
+  /* Dark Text */
+  --text-secondary: #6c757d;
+  /* Muted Text */
+  --accent-color: #0d6efd;
+  /* Primary Blue */
+  --accent-hover: #0b5ed7;
+  /* Darker Blue */
+  --border-color: #dee2e6;
+  /* Light Border */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --nav-bg: #ffffff;
+  --nav-text: #212529;
+}
+
+/* Dark Theme Overrides */
+[data-theme="dark"] {
+  --bg-primary: #121212;
+  /* Very Dark Background */
+  --bg-secondary: #1e1e1e;
+  /* Dark Card Background */
+  --text-primary: #e0e0e0;
+  /* Light Text */
+  --text-secondary: #a0a0a0;
+  /* Muted Text */
+  --accent-color: #3d8bfd;
+  /* Brighter Blue for Dark Mode */
+  --accent-hover: #5c9eff;
+  --border-color: #333333;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+  --nav-bg: #1e1e1e;
+  --nav-text: #ffffff;
+}
+
+/* Global Reset & Typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Modern Font Stack */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Smooth Theme Transition */
+}
+
+/* App Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--nav-bg);
+  color: var(--nav-text);
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.3s ease;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+
+/* Buttons */
+button,
+.btn-login,
+.btn-logout {
+  padding: 0.5rem 1.2rem;
+  font-family: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary,
+.btn-login,
+.btn-logout {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.btn-primary:hover,
+.btn-login:hover,
+.btn-logout:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-theme-toggle {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.btn-theme-toggle:hover {
+  background-color: var(--bg-primary);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Dashboard / Course Grid */
+.dashboard-container h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  /* Slightly wider cards */
+  gap: 2rem;
+}
+
+.course-card {
+  background-color: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  /* Softer corners */
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.course-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-color);
+}
+
+.price {
+  display: block;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.course-card button {
+  width: 100%;
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.8rem;
+  border-radius: 8px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.home-content {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.home-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--accent-color), #8e2de2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
